@@ -4,9 +4,15 @@ body {
 
 .container-main {
   padding-top: 80px;
+  color: #1F829E;
 }
 
 .container-home {
   padding-top: 40vh;
   text-align: center;
+  color: #1F829E;
+}
+
+.card {
+  background: #C2F3F8;
 }

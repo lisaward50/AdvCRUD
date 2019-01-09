@@ -3,15 +3,17 @@
 <div class="container container-main">
   <h1>Index Page</h1>
   <br/>
+  <% posts.forEach(function(post) { %>
   <div class="row">
     <div class="col-md-12">
-      <div class="card px-2 py-2">
-        <h4 class="pb-2">Event Title</h4>
-        <h5>Date & Time</h5>
-        <h5>Location</h5>
+      <div class="card px-2 py-2 mb-4 border-0">
+        <h4 class="pb-2"><strong><%= post.title %></strong></h4>
+        <h5><strong>Date/Time: &nbsp; &nbsp; &nbsp; &nbsp;</strong><%= post.datetime %></h5>
+        <h5><strong>Location: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong><%= post.location %></h5>
       </div>
     </div>
   </div>
+  <% }) %>
 </div>
 
 <% include ./partials/footer %>
