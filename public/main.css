@@ -1,0 +1,12 @@
+body {
+  background: #82E2EB;
+}
+
+.container-main {
+  padding-top: 80px;
+}
+
+.container-home {
+  padding-top: 40vh;
+  text-align: center;
+}
