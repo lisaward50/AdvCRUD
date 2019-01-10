@@ -8,6 +8,10 @@
       <h5><strong>Date/Time: &nbsp; &nbsp; &nbsp; &nbsp;</strong><%= post.datetime %></h5>
       <h5><strong>Location: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong><%= post.location %></h5>
       <h5 class="pb-3"><strong>Description: &nbsp; &nbsp; &nbsp;</strong><em><%= post.description %></em></h5>
+      <a class="btn btn-sm btn-outline-warning" href="/posts/<%= post._id %>/edit">Edit</a>
+      <form class="inline" action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+        <button class="btn btn-sm btn-outline-danger">Delete</button>
+      </form>
       <a class="btn btn-sm btn-outline-info" href="/posts">Back to list</a>
     </div>
   </div>

@@ -58,6 +58,40 @@ app.get("/posts/:id", function(req, res){
   });
 });
 
+//EDIT ROUTE
+app.get("/posts/:id/edit", function(req, res) {
+  Post.findById(req.params.id, function(err, chosenPost){
+    //
+    if(err){
+      res.redirect("/posts");
+    } else {
+      res.render("edit", {post: chosenPost});
+    }
+  })
+});
+
+//UPDATE ROUTE
+app.put("/posts/:id", function(req, res){
+  Post.findByIdAndUpdate(req.params.id, req.body.post, function(err, updatedPost){
+    if(err){
+      res.redirect("/posts");
+    } else {
+      res.redirect("/posts/" + req.params.id);
+    }
+  });
+});
+
+//DESTROY ROUTE
+app.delete("/posts/:id", function(req, res){
+  Post.findByIdAndRemove(req.params.id, function(err){
+    if(err){
+      res.redirect("/posts");
+    } else {
+      res.redirect("/posts");
+    }
+  });
+});
+
 app.listen(PORT, function(){
   console.log("Server up and running");
 });
