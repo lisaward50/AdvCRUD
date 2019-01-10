@@ -18,7 +18,7 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 
-seedDatabase();
+//seedDatabase();
 
 app.use("/", indexRoutes);
 app.use("/posts", postRoutes);

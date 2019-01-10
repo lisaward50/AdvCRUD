@@ -1,0 +1,20 @@
+<% include ../partials/header %>
+
+<div class="container container-main">
+  <br/>
+  <h1>Edit Comment</h1>
+  <br/>
+  <form action="/posts/<%= post_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+    <div class="form-group">
+      <input class="form-control" type="text" name="comment[text]" value="<%= comment.text %>">
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="text" name="comment[author]" value="<%= comment.author %>">
+    </div>
+    <button class="btn btn-sm btn-outline-info inline">Submit</button>
+  </form>
+  <br/>
+  <a class="btn btn-sm btn-outline-info" href="/posts/<%= post_id %>">Return to event post</a>
+</div>
+
+<% include ../partials/footer %>

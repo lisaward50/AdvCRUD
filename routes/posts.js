@@ -32,7 +32,7 @@ router.post("/", middleware.log, function(req, res){
 
 //SHOW ROUTE
 router.get("/:id", function(req, res){
-  Post.findById(req.params.id, function(err, chosenPost){
+  Post.findById(req.params.id).populate("comments").exec(function(err, chosenPost){
     if(err){
       res.redirect("/posts");
     } else {
