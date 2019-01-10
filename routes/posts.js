@@ -15,13 +15,22 @@ router.get("/", function(req, res){
 });
 
 //NEW ROUTE
-router.get("/new", middleware.log, function(req, res){
+router.get("/new", middleware.isLoggedIn, function(req, res){
   res.render("posts/new");
 });
 
 //CREATE ROUTE
-router.post("/", middleware.log, function(req, res){
-  Post.create(req.body.post, function(err, newPost){
+router.post("/", middleware.isLoggedIn, function(req, res){
+  const title       = req.body.title;
+  const datetime    = req.body.datetime;
+  const location    = req.body.location;
+  const description = req.body.description;
+  const author = {
+    id: req.user._id,
+    username: req.user.username
+  };
+  const newPost = {title: title, datetime: datetime, location: location, description: description, author: author};
+  Post.create(newPost, function(err, newlyCreatedPost){
     if(err){
       res.render("posts/new");
     } else {
