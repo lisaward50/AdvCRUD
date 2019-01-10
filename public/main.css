@@ -16,3 +16,7 @@ body {
 .card {
   background: #C2F3F8;
 }
+
+.inline {
+  display: inline;
+}

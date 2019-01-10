@@ -31,6 +31,33 @@ app.get("/posts", function(req, res){
   });
 });
 
+//NEW ROUTE
+app.get("/posts/new", function(req, res){
+  res.render("new");
+});
+
+//CREATE ROUTE
+app.post("/posts", function(req, res){
+  Post.create(req.body.post, function(err, newPost){
+    if(err){
+      res.render("new");
+    } else {
+      res.redirect("/posts");
+    }
+  });
+});
+
+//SHOW ROUTE
+app.get("/posts/:id", function(req, res){
+  Post.findById(req.params.id, function(err, chosenPost){
+    if(err){
+      res.redirect("/posts");
+    } else {
+      res.render("show", {post: chosenPost});
+    }
+  });
+});
+
 app.listen(PORT, function(){
   console.log("Server up and running");
 });

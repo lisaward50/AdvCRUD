@@ -1,16 +1,18 @@
 <% include ./partials/header %>
 
 <div class="container container-main">
-  <h1>Index Page</h1>
+  <div>
+    <h1 class="inline">Upcoming Events</h1>
+    <a class="btn btn-sm btn-outline-info float-right mt-3" href="/posts/new">Add New Event Post</a>
+  </div>
   <br/>
   <% posts.forEach(function(post) { %>
-  <div class="row">
+  <div class="row card px-2 py-2 mb-4 border-0">
     <div class="col-md-12">
-      <div class="card px-2 py-2 mb-4 border-0">
-        <h4 class="pb-2"><strong><%= post.title %></strong></h4>
-        <h5><strong>Date/Time: &nbsp; &nbsp; &nbsp; &nbsp;</strong><%= post.datetime %></h5>
-        <h5><strong>Location: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong><%= post.location %></h5>
-      </div>
+      <h4 class="pb-2"><strong><%= post.title %></strong></h4>
+      <h5><strong>Date/Time: &nbsp; &nbsp; &nbsp; &nbsp;</strong><%= post.datetime %></h5>
+      <h5 class="mb-3"><strong>Location: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong><%= post.location %></h5>
+      <a class="btn btn-sm btn-outline-info" href="/posts/<%= post._id %>">View Full Details</a>
     </div>
   </div>
   <% }) %>
