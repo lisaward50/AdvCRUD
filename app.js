@@ -5,6 +5,7 @@ const mongoose       = require("mongoose");
 const methodOverride = require("method-override");
 const Comment        = require("./models/comment");
 const Post           = require("./models/post");
+const User          = require("./models/user");
 const seedDatabase   = require("./seed");
 const commentRoutes  = require("./routes/comments");
 const postRoutes     = require("./routes/posts");
