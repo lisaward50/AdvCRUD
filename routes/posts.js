@@ -51,7 +51,7 @@ router.get("/:id", function(req, res){
 });
 
 //EDIT ROUTE
-router.get("/:id/edit", middleware.log, function(req, res) {
+router.get("/:id/edit", middleware.checkPostOwnership, function(req, res) {
   Post.findById(req.params.id, function(err, chosenPost){
     //
     if(err){
@@ -63,7 +63,7 @@ router.get("/:id/edit", middleware.log, function(req, res) {
 });
 
 //UPDATE ROUTE
-router.put("/:id", middleware.log, function(req, res){
+router.put("/:id", middleware.checkPostOwnership, function(req, res){
   Post.findByIdAndUpdate(req.params.id, req.body.post, function(err, updatedPost){
     if(err){
       res.redirect("/posts");
@@ -74,7 +74,7 @@ router.put("/:id", middleware.log, function(req, res){
 });
 
 //DESTROY ROUTE
-router.delete("/:id", middleware.log, function(req, res){
+router.delete("/:id", middleware.checkPostOwnership, function(req, res){
   Post.findByIdAndRemove(req.params.id, function(err){
     if(err){
       res.redirect("/posts");
