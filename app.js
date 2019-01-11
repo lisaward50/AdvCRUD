@@ -14,7 +14,7 @@ const commentRoutes  = require("./routes/comments");
 const postRoutes     = require("./routes/posts");
 const indexRoutes    = require("./routes/index");
 const PORT           = process.env.PORT || 3000;
-const url            = "mongodb://localhost:27017/elevate";
+const url            = process.env.DATABASEURL || "mongodb://localhost:27017/elevate";
 
 mongoose.connect(url);
 app.use(bodyParser.urlencoded({extended: true}));
