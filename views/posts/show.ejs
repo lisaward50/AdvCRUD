@@ -15,12 +15,12 @@
             <button class="btn btn-sm btn-outline-danger">Delete</button>
           </form>
         <% } %>
-        <a class="btn btn-sm btn-outline-info" href="/posts">Back to event posts</a>
+        <a class="btn btn-sm btn-outline-info" href="/posts">Back to events</a>
       </div>
     </div>
     <div>
       <div class="text-right">
-        <a class="btn btn-sm btn-outline-info" href="/posts/<%= post._id %>/comments/new">Add New Comment</a>
+        <a class="btn btn-sm btn-outline-info" href="/posts/<%= post._id %>/comments/new">Add Comment</a>
       </div>
       <hr/>
       <% post.comments.forEach(function(comment){ %>
